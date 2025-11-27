@@ -1,15 +1,16 @@
 import React from "react";
 import BookingForm from "../components/BookingForm";
 
-// Define the props interface
 interface BookingPageProps {
     availableTimes: string[];
     dispatch: React.Dispatch<{ type: string; date: string }>;
+    submitForm: (formData: any) => void;
 }
 
 const BookingPage: React.FC<BookingPageProps> = ({
     availableTimes,
     dispatch,
+    submitForm,
 }) => {
     return (
         <section className="bg-highlight-gray min-h-[60vh] py-16">
@@ -24,10 +25,11 @@ const BookingPage: React.FC<BookingPageProps> = ({
                     </p>
                 </div>
 
-                {/* Pass the props down to the form */}
+                {/* Pass submitForm down to the form */}
                 <BookingForm
                     availableTimes={availableTimes}
                     dispatch={dispatch}
+                    submitForm={submitForm}
                 />
             </div>
         </section>

@@ -1,33 +1,41 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 
-// Define props interface
 interface BookingFormProps {
     availableTimes: string[];
     dispatch: React.Dispatch<{ type: string; date: string }>;
+    submitForm: (formData: any) => void;
 }
 
 const BookingForm: React.FC<BookingFormProps> = ({
     availableTimes,
     dispatch,
+    submitForm,
 }) => {
     const [date, setDate] = useState("");
-    const [time, setTime] = useState(availableTimes[0] || "17:00"); // Default to first available time
+    const [time, setTime] = useState(availableTimes[0] || "");
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
 
-    // Handle date change
     const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newDate = e.target.value;
         setDate(newDate);
-        // Dispatch action to update times based on selected date
         dispatch({ type: "UPDATE_TIMES", date: newDate });
     };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form Submitted", { date, time, guests, occasion });
-        alert(`Reservation submitted for ${date} at ${time}!`);
+
+        // Construct the form data object
+        const formData = {
+            date,
+            time,
+            guests,
+            occasion,
+        };
+
+        // Call the submit API function passed from Main
+        submitForm(formData);
     };
 
     return (
@@ -35,7 +43,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
             onSubmit={handleSubmit}
             className="max-w-md mx-auto grid gap-6 bg-white p-6 rounded-card shadow-sm border border-gray-100"
         >
-            {/* Date Field */}
             <div className="grid gap-2">
                 <label htmlFor="res-date" className="font-bold text-gray-700">
                     Choose date
@@ -50,7 +57,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 />
             </div>
 
-            {/* Time Field */}
             <div className="grid gap-2">
                 <label htmlFor="res-time" className="font-bold text-gray-700">
                     Choose time
@@ -61,7 +67,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     onChange={(e) => setTime(e.target.value)}
                     className="p-3 border border-gray-300 rounded-btn focus:outline-none focus:ring-2 focus:ring-primary-yellow"
                 >
-                    {/* Map over the availableTimes prop */}
                     {availableTimes.map((t) => (
                         <option key={t} value={t}>
                             {t}
@@ -70,7 +75,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </select>
             </div>
 
-            {/* Guests Field */}
             <div className="grid gap-2">
                 <label htmlFor="guests" className="font-bold text-gray-700">
                     Number of guests
@@ -87,7 +91,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 />
             </div>
 
-            {/* Occasion Field */}
             <div className="grid gap-2">
                 <label htmlFor="occasion" className="font-bold text-gray-700">
                     Occasion
@@ -103,7 +106,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </select>
             </div>
 
-            {/* Submit Button */}
             <Button
                 type="submit"
                 size="lg"
