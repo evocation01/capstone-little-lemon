@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import React, { useState } from "react";
 
 const Navbar: React.FC = () => {
@@ -18,38 +18,47 @@ const Navbar: React.FC = () => {
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 sm:h-24">
                     {/* Logo */}
-                    <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                        <div className="w-10 h-10 bg-primary-yellow rounded-md flex items-center justify-center">
-                            <span className="text-primary-green font-bold text-xl">
-                                LL
-                            </span>
-                        </div>
-                        <span className="font-serif text-primary-green text-2xl font-bold tracking-wide">
-                            LITTLE LEMON
-                        </span>
-                    </div>
+                    <a
+                        href="#"
+                        className="flex-shrink-0 flex items-center cursor-pointer"
+                    >
+                        <img
+                            src="/logo.svg"
+                            alt="Little Lemon Logo"
+                            className="h-10 w-auto md:h-12"
+                        />
+                    </a>
 
-                    {/* Desktop Menu - Visible on Large screens (lg:flex), Hidden on mobile/tablet */}
-                    <div className="hidden lg:flex space-x-8 items-center">
+                    {/* Desktop Menu - Refactored to use <ul> for semantics */}
+                    <ul className="hidden lg:flex space-x-8 items-center list-none m-0 p-0">
                         {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                className="text-gray-800 hover:text-primary-green font-bold text-lg transition-colors duration-200"
-                            >
-                                {link.name}
-                            </a>
+                            <li key={link.name}>
+                                <a
+                                    href={link.href}
+                                    className="text-gray-800 hover:text-primary-green font-bold text-lg transition-colors duration-200"
+                                >
+                                    {link.name}
+                                </a>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
 
-                    {/* Mobile/Tablet Menu Button - Visible until Large screens */}
+                    {/* Mobile/Tablet Menu Button */}
                     <div className="lg:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-gray-800 hover:text-primary-green focus:outline-none p-2"
                             aria-label="Toggle menu"
                         >
-                            {isOpen ? <X size={28} /> : <Menu size={28} />}
+                            {isOpen ? (
+                                <X size={28} />
+                            ) : (
+                                <img
+                                    src="/icons/hamburger-menu.svg"
+                                    alt="Menu"
+                                    className="w-7 h-7"
+                                />
+                            )}
                         </button>
                     </div>
                 </div>
@@ -58,18 +67,19 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu Dropdown */}
             {isOpen && (
                 <div className="lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
-                    <div className="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                    <ul className="px-4 pt-2 pb-6 space-y-2 flex flex-col list-none m-0">
                         {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                className="block px-3 py-3 rounded-md text-base font-bold text-gray-800 hover:bg-highlight-gray hover:text-primary-green"
-                            >
-                                {link.name}
-                            </a>
+                            <li key={link.name}>
+                                <a
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block px-3 py-3 rounded-md text-base font-bold text-gray-800 hover:bg-highlight-gray hover:text-primary-green"
+                                >
+                                    {link.name}
+                                </a>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             )}
         </nav>

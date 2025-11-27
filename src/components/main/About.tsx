@@ -28,19 +28,19 @@ const About: React.FC = () => {
 
                     {/* Overlapping Images Visualization */}
                     <div className="w-full lg:w-1/2 relative min-h-[20rem] sm:min-h-[28rem]">
-                        {/* Image 1 (Bottom/Right) */}
+                        {/* Image 1 (Bottom/Right) - Using local chefs-b.jpg */}
                         <div className="absolute right-0 bottom-0 w-3/5 h-3/4 z-10 shadow-xl rounded-sm overflow-hidden">
                             <img
-                                src="img/chefs-a.jpg"
+                                src="/img/chefs-b.jpg"
                                 alt="Chefs interacting"
                                 className="w-full h-full object-cover"
                             />
                         </div>
 
-                        {/* Image 2 (Top/Left) */}
+                        {/* Image 2 (Top/Left) - Using local chefs-a.jpg */}
                         <div className="absolute left-0 top-0 w-3/5 h-3/4 z-20 shadow-2xl rounded-sm overflow-hidden border-4 border-white">
                             <img
-                                src="img/chefs-b.jpg"
+                                src="/img/chefs-a.jpg"
                                 alt="Chef preparing food"
                                 className="w-full h-full object-cover"
                             />

@@ -23,11 +23,11 @@ const Hero: React.FC = () => {
                         </button>
                     </div>
 
-                    {/* Hero Image */}
+                    {/* Hero Image - using local restaurant-food.jpg */}
                     <div className="w-full md:w-1/2 relative h-64 md:h-96 mt-6 md:mt-0 flex justify-center md:justify-end">
                         <div className="relative w-full max-w-md aspect-[4/3] rounded-card overflow-hidden shadow-xl md:absolute md:top-8 md:right-0 lg:right-12 transform md:translate-y-4">
                             <img
-                                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                src="/img/restaurant-food.jpg"
                                 alt="Delicious Mediterranean Food"
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />

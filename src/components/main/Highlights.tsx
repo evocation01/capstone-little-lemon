@@ -1,4 +1,3 @@
-import { ShoppingBasket } from "lucide-react";
 import React from "react";
 
 interface SpecialItem {
@@ -15,21 +14,21 @@ const Highlights: React.FC = () => {
             price: "$12.99",
             description:
                 "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
-            image: "img/greek-salad.jpg",
+            image: "/img/greek-salad.jpg",
         },
         {
             title: "Bruchetta",
             price: "$5.99",
             description:
                 "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Topped with chopped tomatoes.",
-            image: "img/bruchetta.svg",
+            image: "/img/bruchetta.svg",
         },
         {
             title: "Lemon Dessert",
             price: "$5.00",
             description:
                 "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
-            image: "img/lemon-dessert.jpg",
+            image: "/img/lemon-dessert.jpg",
         },
     ];
 
@@ -77,10 +76,12 @@ const Highlights: React.FC = () => {
                                 </p>
                                 <button className="mt-6 flex items-center gap-3 font-bold text-gray-800 hover:underline group/btn">
                                     Order a delivery
-                                    <span className="bg-white/50 p-1 rounded-full group-hover/btn:translate-x-1 transition-transform">
-                                        <ShoppingBasket
-                                            size={18}
-                                            className="text-primary-green"
+                                    <span className="bg-white/50 px-2 py-1 rounded-full group-hover/btn:translate-x-1 transition-transform">
+                                        {/* Using local Basket icon */}
+                                        <img
+                                            src="/icons/Basket.svg"
+                                            alt="Basket"
+                                            className="w-5 h-5 inline-block"
                                         />
                                     </span>
                                 </button>
