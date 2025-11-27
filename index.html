@@ -5,19 +5,47 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Step 1: Description -->
     <meta name="description" content="Little Lemon is a family-owned Mediterranean restaurant in Chicago, focused on traditional recipes served with a modern twist." />
-    
-    <!-- Step 2: Open Graph Title -->
     <meta property="og:title" content="Little Lemon Restaurant" />
-    
-    <!-- Step 3: Open Graph Description -->
     <meta property="og:description" content="Reserve a table or order online at Little Lemon, Chicago's premier Mediterranean dining experience." />
-    
-    <!-- Step 4: Open Graph Image -->
     <meta property="og:image" content="/img/restaurant-food.jpg" />
 
     <title>Little Lemon</title>
+
+    <!-- 
+      Step 1: API Setup
+      We are defining the API functions here to ensure they are available globally.
+      (Inlining avoids MIME-type blocking issues often seen with raw.githubusercontent links)
+    -->
+    <script>
+      const seededRandom = function (seed) {
+        var m = 2**35 - 31;
+        var a = 185852;
+        var s = seed % m;
+        return function () {
+          return (s = s * a % m) / m;
+        };
+      }
+
+      window.fetchAPI = function(date) {
+        let result = [];
+        let random = seededRandom(date.getDate());
+
+        for(let i = 17; i <= 23; i++) {
+          if(random() < 0.5) {
+            result.push(i + ':00');
+          }
+          if(random() < 0.5) {
+            result.push(i + ':30');
+          }
+        }
+        return result;
+      };
+
+      window.submitAPI = function(formData) {
+        return true;
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
