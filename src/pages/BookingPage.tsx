@@ -1,7 +1,16 @@
 import React from "react";
 import BookingForm from "../components/BookingForm";
 
-const BookingPage: React.FC = () => {
+// Define the props interface
+interface BookingPageProps {
+    availableTimes: string[];
+    dispatch: React.Dispatch<{ type: string; date: string }>;
+}
+
+const BookingPage: React.FC<BookingPageProps> = ({
+    availableTimes,
+    dispatch,
+}) => {
     return (
         <section className="bg-highlight-gray min-h-[60vh] py-16">
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,8 +24,11 @@ const BookingPage: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Step 1: BookingPage contains the BookingForm */}
-                <BookingForm />
+                {/* Pass the props down to the form */}
+                <BookingForm
+                    availableTimes={availableTimes}
+                    dispatch={dispatch}
+                />
             </div>
         </section>
     );

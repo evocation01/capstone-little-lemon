@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 
-const BookingForm: React.FC = () => {
-    // Step 3: Define state variables for form fields
+// Define props interface
+interface BookingFormProps {
+    availableTimes: string[];
+    dispatch: React.Dispatch<{ type: string; date: string }>;
+}
+
+const BookingForm: React.FC<BookingFormProps> = ({
+    availableTimes,
+    dispatch,
+}) => {
     const [date, setDate] = useState("");
-    const [time, setTime] = useState("17:00");
+    const [time, setTime] = useState(availableTimes[0] || "17:00"); // Default to first available time
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
 
-    // Step 3: Available times state
-    const [availableTimes, setAvailableTimes] = useState([
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ]);
+    // Handle date change
+    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newDate = e.target.value;
+        setDate(newDate);
+        // Dispatch action to update times based on selected date
+        dispatch({ type: "UPDATE_TIMES", date: newDate });
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -38,7 +44,7 @@ const BookingForm: React.FC = () => {
                     type="date"
                     id="res-date"
                     value={date}
-                    onChange={(e) => setDate(e.target.value)}
+                    onChange={handleDateChange}
                     required
                     className="p-3 border border-gray-300 rounded-btn focus:outline-none focus:ring-2 focus:ring-primary-yellow"
                 />
@@ -55,6 +61,7 @@ const BookingForm: React.FC = () => {
                     onChange={(e) => setTime(e.target.value)}
                     className="p-3 border border-gray-300 rounded-btn focus:outline-none focus:ring-2 focus:ring-primary-yellow"
                 >
+                    {/* Map over the availableTimes prop */}
                     {availableTimes.map((t) => (
                         <option key={t} value={t}>
                             {t}
