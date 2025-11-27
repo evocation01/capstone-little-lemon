@@ -1,8 +1,8 @@
 import React from "react";
-import About from "./main/About";
-import Hero from "./main/Hero";
-import Highlights from "./main/Highlights";
-import Testimonials from "./main/Testimonials";
+import About from "./Main/About";
+import Hero from "./Main/Hero";
+import Highlights from "./Main/Highlights";
+import Testimonials from "./Main/Testimonials";
 
 const Main: React.FC = () => {
     return (
