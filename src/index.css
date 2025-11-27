@@ -1,19 +1,18 @@
-/* CRITICAL FIX: 
-  Tailwind v4 uses '@import "tailwindcss";' instead of the old '@tailwind' directives.
-*/
+/* 1. Imports */
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&family=Markazi+Text:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
-/* ---break---
-*/
+
+/* 2. Variant Definitions */
 @custom-variant dark (&:is(.dark *));
 
-/* Define your theme variables here. */
+/* 3. Theme Configuration (Merged Little Lemon + Shadcn) */
 @theme {
-    /* Fonts */
+    /* --- Little Lemon Typography --- */
     --font-serif: "Markazi Text", serif;
     --font-sans: "Karla", sans-serif;
 
-    /* Colors */
+    /* --- Little Lemon Brand Colors --- */
     --color-primary-green: #495e57;
     --color-primary-yellow: #f4ce14;
     --color-secondary-peach: #ee9972;
@@ -21,71 +20,48 @@
     --color-highlight-gray: #edefee;
     --color-card-gray: #d9d9d9;
 
-    /* Border Radius */
+    /* --- Border Radius --- */
     --radius-card: 16px;
     --radius-btn: 16px;
-}
 
-/* Base Styles */
-body {
-    margin: 0;
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: white;
-    color: #333333;
-}
-
-/* Layout Fix for Semantic HTML Structure 
-   Since App.tsx now uses a Fragment, we apply the flex column layout 
-   to the root element to ensure the sticky footer works.
-*/
-#root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-serif);
-}
-
-/* ---break---
-*/
-
-@theme inline {
+    /* --- Shadcn UI Tokens (Mapped to CSS Variables below) --- */
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
+
     --color-background: var(--background);
     --color-foreground: var(--foreground);
+
     --color-card: var(--card);
     --color-card-foreground: var(--card-foreground);
+
     --color-popover: var(--popover);
     --color-popover-foreground: var(--popover-foreground);
+
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
+
     --color-secondary: var(--secondary);
     --color-secondary-foreground: var(--secondary-foreground);
+
     --color-muted: var(--muted);
     --color-muted-foreground: var(--muted-foreground);
+
     --color-accent: var(--accent);
     --color-accent-foreground: var(--accent-foreground);
+
     --color-destructive: var(--destructive);
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
+
     --color-chart-1: var(--chart-1);
     --color-chart-2: var(--chart-2);
     --color-chart-3: var(--chart-3);
     --color-chart-4: var(--chart-4);
     --color-chart-5: var(--chart-5);
+
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -96,9 +72,7 @@ h6 {
     --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* ---break---
-*/
-
+/* 4. CSS Variables (Shadcn Defaults) */
 :root {
     --radius: 0.625rem;
     --background: oklch(1 0 0);
@@ -134,9 +108,6 @@ h6 {
     --sidebar-ring: oklch(0.708 0 0);
 }
 
-/* ---break---
-*/
-
 .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
@@ -171,14 +142,61 @@ h6 {
     --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* ---break---
-*/
-
+/* 5. Base Layer Styles */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
+}
+
+/* 6. Semantic Layout Fix */
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 7. Global Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: var(--color-primary-yellow);
+}
+h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary-green);
+}
+h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333333;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav li {
+    display: inline-block;
 }
