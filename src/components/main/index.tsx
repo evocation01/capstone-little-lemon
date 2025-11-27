@@ -1,13 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-// Adjust these imports to match your folder structure if you moved them to src/components/Main/
-import BookingPage from "../pages/BookingPage";
-import About from "./Main/About";
-import Hero from "./Main/Hero";
-import Highlights from "./Main/Highlights";
-import Testimonials from "./Main/Testimonials";
+import BookingPage from "../../pages/BookingPage";
+import About from "./About";
+import Hero from "./Hero";
+import Highlights from "./Highlights";
+import Testimonials from "./Testimonials";
 
-// We group the home page components into a single element for the "/" route
 const HomePage = () => (
     <>
         <Hero />
