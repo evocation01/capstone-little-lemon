@@ -2,6 +2,11 @@ import { X } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Navbar Component
+ * Renders the main navigation bar for the application.
+ * It includes the logo, desktop navigation links, and a mobile menu.
+ */
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -15,12 +20,16 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="sticky top-0 z-50 bg-white w-full shadow-sm font-sans">
+        <nav
+            className="sticky top-0 z-50 bg-white w-full shadow-sm font-sans"
+            aria-label="Main navigation"
+        >
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 sm:h-24">
                     <Link
                         to="/"
                         className="flex-shrink-0 flex items-center cursor-pointer"
+                        aria-label="Go to Little Lemon homepage"
                     >
                         <img
                             src="/logo.svg"
@@ -46,6 +55,9 @@ const Navbar: React.FC = () => {
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-gray-800 hover:text-primary-green focus:outline-none p-2"
+                            aria-expanded={isOpen}
+                            aria-controls="mobile-menu"
+                            aria-label={isOpen ? "Close menu" : "Open menu"}
                         >
                             {isOpen ? (
                                 <X size={28} />
@@ -62,7 +74,10 @@ const Navbar: React.FC = () => {
             </div>
 
             {isOpen && (
-                <div className="lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+                <div
+                    id="mobile-menu"
+                    className="lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50"
+                >
                     <ul className="px-4 pt-2 pb-6 space-y-2 flex flex-col list-none m-0">
                         {navLinks.map((link) => (
                             <li key={link.name}>

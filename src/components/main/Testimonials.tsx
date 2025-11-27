@@ -2,6 +2,11 @@ import { Star } from "lucide-react";
 import React from "react";
 import { Card, CardContent } from "../ui/card";
 
+/**
+ * Testimonials Component
+ * Renders a section with customer testimonials.
+ * It displays a grid of cards, each containing a review, rating, and customer information.
+ */
 const Testimonials: React.FC = () => {
     const reviews = [
         {
@@ -31,9 +36,15 @@ const Testimonials: React.FC = () => {
     ];
 
     return (
-        <section className="bg-primary-green py-20">
+        <section
+            className="bg-primary-green py-20"
+            aria-labelledby="testimonials-heading"
+        >
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl sm:text-5xl font-medium text-center text-primary-yellow mb-16">
+                <h2
+                    id="testimonials-heading"
+                    className="text-4xl sm:text-5xl font-medium text-center text-primary-yellow mb-16"
+                >
                     Testimonials
                 </h2>
 
@@ -42,9 +53,14 @@ const Testimonials: React.FC = () => {
                         <Card
                             key={idx}
                             className="bg-white hover:-translate-y-1 transition-transform duration-300 border-none rounded-card"
+                            aria-label={`Testimonial from ${review.name}`}
                         >
                             <CardContent className="p-6">
-                                <div className="flex gap-1 mb-4 text-primary-yellow">
+                                <div
+                                    className="flex gap-1 mb-4 text-primary-yellow"
+                                    role="img"
+                                    aria-label={`${review.rating} out of 5 stars`}
+                                >
                                     {[...Array(review.rating)].map((_, i) => (
                                         <Star
                                             key={i}
@@ -57,7 +73,7 @@ const Testimonials: React.FC = () => {
                                 <div className="flex items-center gap-4 mb-4">
                                     <img
                                         src={review.img}
-                                        alt={review.name}
+                                        alt={`Portrait of ${review.name}`}
                                         className="w-12 h-12 rounded-full object-cover border-2 border-highlight-gray"
                                     />
                                     <h4 className="font-sans font-bold text-lg text-gray-800 mb-0">

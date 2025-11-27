@@ -2,6 +2,10 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Card Component
+ * A container component for grouping related content.
+ */
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -15,6 +19,10 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * CardHeader Component
+ * The header section of a Card component.
+ */
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -28,6 +36,10 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * CardTitle Component
+ * The title of a Card component.
+ */
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -38,6 +50,10 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * CardDescription Component
+ * The description section of a Card component.
+ */
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -48,6 +64,10 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * CardAction Component
+ * A container for actions within a Card component.
+ */
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -61,6 +81,10 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * CardContent Component
+ * The main content area of a Card component.
+ */
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -71,6 +95,10 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * CardFooter Component
+ * The footer section of a Card component.
+ */
 function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

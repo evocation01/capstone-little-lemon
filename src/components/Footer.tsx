@@ -1,9 +1,17 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import React from "react";
 
+/**
+ * Footer Component
+ * Renders the footer section of the application.
+ * It includes navigation links, contact information, and social media links.
+ */
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-primary-green py-12 sm:py-16">
+        <footer
+            className="bg-primary-green py-12 sm:py-16"
+            aria-label="Footer"
+        >
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Logo Column */}
@@ -83,24 +91,28 @@ const Footer: React.FC = () => {
                             <a
                                 href="#"
                                 className="bg-white/10 p-2 rounded-full text-white hover:bg-primary-yellow hover:text-primary-green transition-all"
+                                aria-label="Follow us on Facebook"
                             >
                                 <Facebook size={20} />
                             </a>
                             <a
                                 href="#"
                                 className="bg-white/10 p-2 rounded-full text-white hover:bg-primary-yellow hover:text-primary-green transition-all"
+                                aria-label="Follow us on Instagram"
                             >
                                 <Instagram size={20} />
                             </a>
                             <a
                                 href="#"
                                 className="bg-white/10 p-2 rounded-full text-white hover:bg-primary-yellow hover:text-primary-green transition-all"
+                                aria-label="Follow us on Twitter"
                             >
                                 <Twitter size={20} />
                             </a>
                             <a
                                 href="#"
                                 className="bg-white/10 p-2 rounded-full text-white hover:bg-primary-yellow hover:text-primary-green transition-all"
+                                aria-label="Follow us on Linkedin"
                             >
                                 <Linkedin size={20} />
                             </a>

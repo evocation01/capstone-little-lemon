@@ -9,6 +9,11 @@ interface SpecialItem {
     image: string;
 }
 
+/**
+ * Highlights Component
+ * Renders a section showcasing the restaurant's weekly specials.
+ * It displays a grid of cards, each featuring a special menu item.
+ */
 const Highlights: React.FC = () => {
     const specials: SpecialItem[] = [
         {
@@ -35,15 +40,23 @@ const Highlights: React.FC = () => {
     ];
 
     return (
-        <section className="bg-white py-16 sm:py-24" id="menu">
+        <section
+            className="bg-white py-16 sm:py-24"
+            id="menu"
+            aria-labelledby="highlights-heading"
+        >
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row justify-between items-center mb-12 gap-6">
-                    <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-0">
+                    <h2
+                        id="highlights-heading"
+                        className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-0"
+                    >
                         This weeks specials!
                     </h2>
                     <Button
                         size="lg"
                         className="bg-primary-yellow text-gray-900 hover:bg-[#e0bc10] font-bold rounded-btn"
+                        aria-label="View the online menu"
                     >
                         Online Menu
                     </Button>
@@ -54,6 +67,7 @@ const Highlights: React.FC = () => {
                         <Card
                             key={index}
                             className="flex flex-col h-full hover:shadow-xl transition-shadow duration-300 overflow-hidden group border-none rounded-card"
+                            aria-labelledby={`special-item-title-${index}`}
                         >
                             <CardHeader className="p-0">
                                 <div className="h-48 w-full overflow-hidden rounded-t-card">
@@ -67,10 +81,16 @@ const Highlights: React.FC = () => {
 
                             <CardContent className="p-6 flex flex-col flex-grow bg-highlight-gray rounded-b-card">
                                 <div className="flex justify-between items-center mb-4">
-                                    <CardTitle className="font-serif text-xl font-bold text-gray-800 mb-0">
+                                    <CardTitle
+                                        id={`special-item-title-${index}`}
+                                        className="font-serif text-xl font-bold text-gray-800 mb-0"
+                                    >
                                         {item.title}
                                     </CardTitle>
-                                    <span className="font-sans text-secondary-peach font-bold text-lg">
+                                    <span
+                                        className="font-sans text-secondary-peach font-bold text-lg"
+                                        aria-label={`Price: ${item.price}`}
+                                    >
                                         {item.price}
                                     </span>
                                 </div>
@@ -80,9 +100,13 @@ const Highlights: React.FC = () => {
                                 <Button
                                     variant="link"
                                     className="mt-4 p-0 h-auto justify-start text-gray-800 hover:text-primary-green gap-2 font-bold"
+                                    aria-label={`Order a delivery of ${item.title}`}
                                 >
                                     Order a delivery
-                                    <span className="bg-white/50 px-2 py-1 rounded-full">
+                                    <span
+                                        className="bg-white/50 px-2 py-1 rounded-full"
+                                        aria-hidden="true"
+                                    >
                                         <img
                                             src="/icons/Basket.svg"
                                             alt="Basket"

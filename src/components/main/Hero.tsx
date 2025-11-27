@@ -2,13 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button"; // Importing from your real shadcn folder
 
+/**
+ * Hero Component
+ * Renders the hero section of the homepage.
+ * It includes the restaurant's name, location, a brief description, and a call-to-action button to reserve a table.
+ */
 const Hero: React.FC = () => {
     return (
-        <section className="bg-primary-green relative w-full overflow-hidden">
+        <section
+            className="bg-primary-green relative w-full overflow-hidden"
+            aria-labelledby="hero-heading"
+        >
             <div className="max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8">
                     <div className="w-full md:w-1/2 flex flex-col gap-4 z-10">
-                        <h1 className="font-serif text-primary-yellow text-5xl sm:text-7xl font-medium leading-none mb-0">
+                        <h1
+                            id="hero-heading"
+                            className="font-serif text-primary-yellow text-5xl sm:text-7xl font-medium leading-none mb-0"
+                        >
                             Little Lemon
                         </h1>
                         <h2 className="font-serif text-white text-3xl sm:text-4xl font-normal -mt-2 mb-4">
@@ -21,7 +32,7 @@ const Hero: React.FC = () => {
                             twist.
                         </p>
 
-                        <Link to="/booking">
+                        <Link to="/booking" aria-label="Reserve a Table">
                             {/* Overriding shadcn button styles to match brand colors */}
                             <Button
                                 size="lg"

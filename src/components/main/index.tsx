@@ -9,6 +9,11 @@ import Highlights from "./Highlights";
 import { initializeTimes, updateTimes } from "./mainReducer";
 import Testimonials from "./Testimonials";
 
+/**
+ * HomePage Component
+ *
+ * A functional component that groups the main sections of the homepage.
+ */
 const HomePage = () => (
     <>
         <Hero />
@@ -18,6 +23,12 @@ const HomePage = () => (
     </>
 );
 
+/**
+ * Main Component
+ *
+ * The central component that manages the main content and routing of the application.
+ * It handles the state for available booking times and the form submission logic.
+ */
 const Main: React.FC = () => {
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
@@ -26,6 +37,10 @@ const Main: React.FC = () => {
     );
     const navigate = useNavigate();
 
+    /**
+     * Handles the form submission for a new booking.
+     * @param formData The data from the booking form.
+     */
     const submitForm = (formData: any) => {
         // 1. Submit to the mock API (which just returns true)
         const isSubmitted = window.submitAPI(formData);
@@ -44,7 +59,7 @@ const Main: React.FC = () => {
     };
 
     return (
-        <main className="flex-grow">
+        <main className="flex-grow" role="main">
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route

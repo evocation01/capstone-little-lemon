@@ -36,6 +36,10 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Button Component
+ * A customizable button component with different variants and sizes.
+ */
 function Button({
   className,
   variant,
@@ -44,6 +48,9 @@ function Button({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
+    /**
+     * If true, the button will be rendered as a child of the Slot component.
+     */
     asChild?: boolean
   }) {
   const Comp = asChild ? Slot : "button"

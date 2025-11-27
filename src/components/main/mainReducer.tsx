@@ -1,5 +1,11 @@
 import { getBookedTimes } from "../../utils/fakeAPI";
 
+/**
+ * Reducer function to update available booking times based on the selected date.
+ * @param state The current array of available times.
+ * @param action The action object, containing the type and the selected date.
+ * @returns The new array of available times.
+ */
 export const updateTimes = (
     state: string[],
     action: { type: string; date: string }
@@ -21,6 +27,10 @@ export const updateTimes = (
     }
 };
 
+/**
+ * Initializes the available booking times for the current date.
+ * @returns An array of available time slots for today.
+ */
 export const initializeTimes = () => {
     const today = new Date();
     // Format today as YYYY-MM-DD to match input values
