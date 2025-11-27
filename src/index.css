@@ -1,5 +1,44 @@
-/* src/index.css */
+/* CRITICAL FIX: 
+  Tailwind v4 uses '@import "tailwindcss";' instead of the old '@tailwind' directives.
+*/
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Define your theme variables here. 
+  This replaces the need for tailwind.config.js in v4.
+*/
+@theme {
+    /* Fonts */
+    --font-serif: "Markazi Text", serif;
+    --font-sans: "Karla", sans-serif;
+
+    /* Colors */
+    --color-primary-green: #495e57;
+    --color-primary-yellow: #f4ce14;
+    --color-secondary-peach: #ee9972;
+    --color-secondary-cream: #fbdabb;
+    --color-highlight-gray: #edefee;
+    --color-card-gray: #d9d9d9;
+
+    /* Border Radius */
+    --radius-card: 16px;
+    --radius-btn: 16px;
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white; /* Ensure white background */
+    color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+}
