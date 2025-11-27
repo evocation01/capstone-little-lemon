@@ -1,0 +1,20 @@
+public/
+├── icons/
+│   ├── Basket.svg
+│   ├── Dish icon.svg
+│   ├── Recent.svg
+│   ├── creditcard.svg
+│   ├── hamburger-menu.svg
+│   ├── home icon.svg
+│   └── icon-eye.svg
+├── img/
+│   ├── bruchetta.svg
+│   ├── chef.jpg
+│   ├── chefs-a.jpg
+│   ├── chefs-b.jpg
+│   ├── greek-salad.jpg
+│   ├── lemon-dessert.jpg
+│   ├── restaurant-food.jpg
+│   └── restaurant.jpg
+├── logo.svg
+└── vite.svg
