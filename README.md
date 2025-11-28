@@ -4,9 +4,13 @@
 
 A responsive web application for the fictional Little Lemon restaurant, built as a Capstone project. It offers a delightful user experience for browsing our exquisite menu and effortlessly reserving a table online.
 
+## 📝 **Note**
+
+This is a demo application, so it only has limited functionality, such as home page, menu, and booking pages.
+
 ---
 
-🚀 **Features**
+## 🚀 **Features**
 
 -   **Responsive Design:** Flawlessly optimized for a consistent and enjoyable experience across all devices: mobile, tablet, and desktop.
 -   **Table Reservation System:** A robust booking form featuring intuitive client-side validation to ensure accurate and smooth reservation requests.
@@ -17,7 +21,7 @@ A responsive web application for the fictional Little Lemon restaurant, built as
 
 ---
 
-🛠 **Tech Stack**
+## 🛠 **Tech Stack**
 
 -   **Framework:** React + Vite
 -   **Language:** TypeScript
@@ -27,7 +31,7 @@ A responsive web application for the fictional Little Lemon restaurant, built as
 
 ---
 
-📦 **Installation & Setup**
+## 📦 **Installation & Setup**
 
 To get the Little Lemon Restaurant Web App up and running on your local machine, follow these steps:
 
@@ -53,7 +57,7 @@ To get the Little Lemon Restaurant Web App up and running on your local machine,
 
 ---
 
-🧪 **Testing**
+## 🧪 **Testing**
 
 The application includes comprehensive unit tests to ensure the reliability of critical functionalities.
 
@@ -66,7 +70,7 @@ The application includes comprehensive unit tests to ensure the reliability of c
 
 ---
 
-📂 **Project Structure**
+## 📂 **Project Structure**
 
 A brief overview of the project's key directories and files:
 
@@ -82,18 +86,18 @@ A brief overview of the project's key directories and files:
 
 ---
 
-🤝 **Contributing**
+## 🤝 **Contributing**
 
 Contributions are welcome! If you find a bug or have a feature request, please open an issue or submit a pull request.
 
 ---
 
-📄 **License**
+## 📄 **License**
 
 This project is licensed under the MIT License - see the `LICENSE` file for details.
 
 ---
 
-👤 **Author**
+## 👤 **Author**
 
 evocation01
